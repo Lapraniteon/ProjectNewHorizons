@@ -12,6 +12,8 @@ public class Grapple : MonoBehaviour
     private Vector2 _directionWorldSpace;
     private bool _directionChosen;
 
+    public Rigidbody2D body;
+
     void Start()
     {
         _mainCamera = Camera.main;
@@ -20,7 +22,6 @@ public class Grapple : MonoBehaviour
     void Update()
     {
         
-
         float cameraZOffset = transform.position.z - Camera.main.transform.position.z;
         
         // Track a single touch as a direction control.
@@ -36,6 +37,7 @@ public class Grapple : MonoBehaviour
                     _touchStartPos = touch.position;
                     _touchStartPosWorldSpace = _mainCamera.ScreenToWorldPoint(new Vector3(_touchStartPos.x, _touchStartPos.y, cameraZOffset));
                     _directionChosen = false;
+                    Time.timeScale = 0f;
                     break;
 
                 // Determine direction by comparing the current touch position with the initial one.
@@ -46,6 +48,7 @@ public class Grapple : MonoBehaviour
                 // Report that a direction has been chosen when the finger is lifted.
                 case TouchPhase.Ended:
                     _directionChosen = true;
+                    Time.timeScale = 1f;
                     break;
             }
         }
@@ -58,22 +61,22 @@ public class Grapple : MonoBehaviour
 
         DebugExtension.DebugPoint(_touchStartPosWorldSpace, Color.cyan);
         Debug.DrawRay(_touchStartPosWorldSpace, _directionWorldSpace, _directionChosen ? Color.green : Color.red);
+        
+        DebugExtension.DebugPoint(targetJoint.target, Color.yellow);
     }
 
     private void RaycastAndMove(Vector2 direction)
     {
-        /*Vector3 raycastTarget = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z - Camera.main.transform.position.z));
-
-        Debug.Log(raycastTarget);
-
-        Vector2 direction = raycastTarget - transform.position;*/
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 11f, LayerMask.GetMask("Grapple"));
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 20f, LayerMask.GetMask("Grapple"));
 
         if (hit)
         {
-            Debug.DrawRay(transform.position, direction, Color.red, 2f);
-            DebugExtension.DebugPoint(hit.point, Color.cyan, 1f, 2f);
+            Debug.DrawRay(transform.position, direction, Color.blue, 2f);
+            DebugExtension.DebugPoint(hit.point, Color.magenta, 1f, 2f);
 
+            body.linearVelocity = Vector2.zero;
+            body.angularVelocity = 0f;
+            
             targetJoint.enabled = true;
             targetJoint.target = hit.point;
         }
