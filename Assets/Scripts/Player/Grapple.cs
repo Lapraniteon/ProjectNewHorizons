@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using DG.Tweening;
 
@@ -111,6 +112,15 @@ public class Grapple : MonoBehaviour
         
         DebugExtension.DebugPoint(targetJoint.target, Color.yellow);
         DebugExtension.DebugWireSphere(targetJoint.target, Color.red, 1f);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Bounce"))
+        {
+            DisconnectGrapple();
+            other.gameObject.GetComponent<BounceObject>().Bounce(body);
+        }
     }
 
     private void DisconnectGrapple()
