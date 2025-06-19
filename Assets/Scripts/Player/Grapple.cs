@@ -121,6 +121,11 @@ public class Grapple : MonoBehaviour
             DisconnectGrapple();
             other.gameObject.GetComponent<BounceObject>().Bounce(body);
         }
+
+        if (other.CompareTag("PsychoShroom"))
+        {
+            other.gameObject.GetComponent<PsychoShroom>().Trigger();
+        }
     }
 
     private void DisconnectGrapple()

@@ -1,16 +1,24 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PsychoShroom : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    public List<GameObject> objectsToUnhide = new();
+
     void Start()
     {
-        
+        foreach (GameObject obj in objectsToUnhide)
+            obj.SetActive(false);
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public void Trigger()
     {
+        foreach (GameObject obj in objectsToUnhide)
+        {
+            obj.SetActive(true);
+        }
         
+        gameObject.SetActive(false);
     }
 }
