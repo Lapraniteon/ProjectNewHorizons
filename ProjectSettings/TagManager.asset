@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Grapple
   - Vine
+  - Bounce
   layers:
   - Default
   - TransparentFX
