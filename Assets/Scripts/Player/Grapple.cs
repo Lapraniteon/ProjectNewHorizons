@@ -4,8 +4,12 @@ using DG.Tweening;
 public class Grapple : MonoBehaviour
 {
 
+    // Object references
     private Camera _mainCamera;
+    public Rigidbody2D body;
+    public LineRenderer lineRenderer;
 
+    // Grappling
     public TargetJoint2D targetJoint;
     public float maxGrappleDistance;
     private Vector2 _touchStartPos;
@@ -13,13 +17,13 @@ public class Grapple : MonoBehaviour
     private Vector2 _direction;
     private Vector2 _directionWorldSpace;
     private bool _directionChosen;
+    private bool _beganTouch;
 
-    public Rigidbody2D body;
-    public LineRenderer lineRenderer;
+    private string _currentGrappleTag;
 
+    // Time tweening
     private Tweener _timeTweener;
     private float _startingFixedDeltaTime;
-    
     void Start()
     {
         _startingFixedDeltaTime = Time.fixedDeltaTime;
@@ -43,6 +47,7 @@ public class Grapple : MonoBehaviour
             {
                 // Record initial touch position.
                 case TouchPhase.Began:
+                    _beganTouch = true;
                     _touchStartPos = touch.position;
                     _touchStartPosWorldSpace = _mainCamera.ScreenToWorldPoint(new Vector3(_touchStartPos.x, _touchStartPos.y, cameraZOffset));
                     _directionChosen = false;
@@ -51,32 +56,53 @@ public class Grapple : MonoBehaviour
                 
                 // Determine direction by comparing the current touch position with the initial one.
                 case TouchPhase.Moved:
+                    if (!_beganTouch)
+                        break;
+                    
                     Vector2 touchPositionWorldSpace =
                         _mainCamera.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, cameraZOffset));
                     
                     _directionWorldSpace = touchPositionWorldSpace - _touchStartPosWorldSpace;
 
-                    if (Vector2.Distance(_touchStartPosWorldSpace, touchPositionWorldSpace) > 4f)
+                    if (_directionWorldSpace.magnitude > 4f)
+                    {
+                        _beganTouch = false;
                         _directionChosen = true;
+                    }
                     
                     break;
 
                 // Report that a direction has been chosen when the finger is lifted.
                 case TouchPhase.Ended:
+
+                    _timeTweener.Kill();
+                    Time.timeScale = 1f;
+                    
+                    if (Vector2.Distance(_touchStartPos, touch.position) < 30f)
+                    {
+                        DisconnectGrapple();
+                        break;
+                    }
+                    
+                    _beganTouch = false;
                     _directionChosen = true;
                     break;
             }
         }
+        
+        // If direction is chosen, launch.
         if (_directionChosen)
         {
             Debug.Log("Launch!");
-            
-            _timeTweener.Kill();
-            Time.timeScale = 1f;
-            
+
+            lineRenderer.enabled = true;
             RaycastAndMove(_directionWorldSpace);
             _directionChosen = false;
         }
+        
+        // If grappling a vine, release grapple when in close proximity
+        if (_currentGrappleTag == "Vine" && Vector2.Distance(transform.position, targetJoint.target) <= 1f)
+            DisconnectGrapple();
         
         lineRenderer.SetPosition(0, transform.position);
 
@@ -84,20 +110,30 @@ public class Grapple : MonoBehaviour
         Debug.DrawRay(_touchStartPosWorldSpace, _directionWorldSpace, _directionChosen ? Color.green : Color.red);
         
         DebugExtension.DebugPoint(targetJoint.target, Color.yellow);
+        DebugExtension.DebugWireSphere(targetJoint.target, Color.red, 1f);
+    }
+
+    private void DisconnectGrapple()
+    {
+        targetJoint.enabled = false;
+        lineRenderer.enabled = false;
     }
 
     private void RaycastAndMove(Vector2 direction)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, maxGrappleDistance, LayerMask.GetMask("Grapple"));
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, maxGrappleDistance, LayerMask.GetMask("Grapple", "Vine"));
 
         if (hit)
         {
+            _currentGrappleTag = hit.transform.tag;
+            
             Debug.DrawRay(transform.position, direction, Color.blue, 2f);
             DebugExtension.DebugPoint(hit.point, Color.magenta, 1f, 2f);
 
             float currentVelocityMagnitude = body.linearVelocity.magnitude;
             float projectedMagnitude = Vector2.Dot(body.linearVelocity, direction.normalized);
-            body.linearVelocity = direction.normalized * ((currentVelocityMagnitude + projectedMagnitude) / 2f);
+            //body.linearVelocity = direction.normalized * ((currentVelocityMagnitude + projectedMagnitude) / 2f);
+            body.linearVelocity = direction.normalized * currentVelocityMagnitude;
             
             targetJoint.enabled = true;
             targetJoint.target = hit.point;
