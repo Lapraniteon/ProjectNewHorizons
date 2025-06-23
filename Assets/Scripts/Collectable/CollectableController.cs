@@ -13,6 +13,11 @@ public class CollectableController : MonoBehaviour
     void Start()
     {
         GameManager.Instance.currentCollectableController = this;
+
+        foreach (Collectable collectable in collectables)
+        {
+            collectable.controller = this;
+        }
     }
 
     public void GotCollectable(Collectable collectable)

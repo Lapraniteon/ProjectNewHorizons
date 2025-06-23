@@ -25,5 +25,10 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (other.CompareTag("RespawnPoint"))
             GameManager.Instance.SetRespawnPoint(other.GetComponent<RespawnPoint>());
+
+        if (other.CompareTag("Collectable"))
+        {
+            other.GetComponent<Collectable>().Collect();
+        }
     }
 }

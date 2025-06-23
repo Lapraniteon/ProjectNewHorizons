@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
-    public CollectableController controller;
+    [HideInInspector] public CollectableController controller;
     
     public bool IsCollected { get; private set; }
 
