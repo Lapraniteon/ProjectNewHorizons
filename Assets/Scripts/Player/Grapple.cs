@@ -39,7 +39,7 @@ public class Grapple : MonoBehaviour
         Time.fixedDeltaTime = _startingFixedDeltaTime * Time.timeScale;
         
         // Track a single touch as a direction control.
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && !GameManager.Instance.overlayActive)
         {
             Touch touch = Input.GetTouch(0);
 
