@@ -494,7 +494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8783235483043575526, guid: 34cc7326e54534b7596c580755f92414, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -692,11 +692,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8004296554900639171, guid: 53f67231596314226b483e228833d011, type: 3}
       propertyPath: m_Name
-      value: Death screen
-      objectReference: {fileID: 0}
-    - target: {fileID: 8004296554900639171, guid: 53f67231596314226b483e228833d011, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      value: Pause screen
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -793,7 +789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5798959650336902915, guid: e97eb6cb577f34fbdb603f63fc7a523f, type: 3}
       propertyPath: m_Name
-      value: Controls
+      value: Game screen
       objectReference: {fileID: 0}
     - target: {fileID: 5798959650336902915, guid: e97eb6cb577f34fbdb603f63fc7a523f, type: 3}
       propertyPath: m_IsActive
