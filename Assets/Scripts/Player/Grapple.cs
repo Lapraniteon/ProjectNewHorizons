@@ -126,6 +126,11 @@ public class Grapple : MonoBehaviour
         {
             other.gameObject.GetComponent<PsychoShroom>().Trigger();
         }
+
+        if (other.CompareTag("Death"))
+        {
+            Die();
+        }
     }
 
     private void DisconnectGrapple()
@@ -155,5 +160,10 @@ public class Grapple : MonoBehaviour
             
             lineRenderer.SetPosition(1, hit.point);
         }
+    }
+
+    public void Die()
+    {
+        GameManager.Instance.PlayerKilled();
     }
 }

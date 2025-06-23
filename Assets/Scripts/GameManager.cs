@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,9 +15,19 @@ public class GameManager : MonoBehaviour
         }
     } // Game Manager instance property
 
+    // Player properties
+    public RespawnPoint currentRespawnPoint;
+    
+    public UnityEvent onPlayerDeath;
+
     void Awake()
     {
         _instance = this;
         Application.targetFrameRate = (int)Screen.currentResolution.refreshRateRatio.value;
+    }
+
+    public void PlayerKilled()
+    {
+        onPlayerDeath.Invoke();
     }
 }
