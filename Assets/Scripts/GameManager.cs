@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
         }
     } // Game Manager instance property
 
-    // Player properties
+    // Static player data
     public RespawnPoint currentRespawnPoint;
     
     public UnityEvent onPlayerDeath;

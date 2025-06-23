@@ -9,6 +9,7 @@ public class Grapple : MonoBehaviour
     private Camera _mainCamera;
     public Rigidbody2D body;
     public LineRenderer lineRenderer;
+    private PlayerBehaviour _player;
 
     // Grappling
     public TargetJoint2D targetJoint;
@@ -29,6 +30,7 @@ public class Grapple : MonoBehaviour
     {
         _startingFixedDeltaTime = Time.fixedDeltaTime;
         _mainCamera = Camera.main;
+        _player = GetComponent<PlayerBehaviour>();
     }
     
     void Update()
@@ -129,7 +131,7 @@ public class Grapple : MonoBehaviour
 
         if (other.CompareTag("Death"))
         {
-            Die();
+            _player.Die();
         }
     }
 
@@ -160,10 +162,5 @@ public class Grapple : MonoBehaviour
             
             lineRenderer.SetPosition(1, hit.point);
         }
-    }
-
-    public void Die()
-    {
-        GameManager.Instance.PlayerKilled();
     }
 }
