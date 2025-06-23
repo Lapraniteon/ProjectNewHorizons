@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     public Transform cameraTrackingTarget;
     
     public UnityEvent onPlayerDeath;
+    
+    // Collectables
+    public CollectableController currentCollectableController;
 
     void Awake()
     {
