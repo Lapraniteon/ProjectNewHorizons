@@ -724,7 +724,7 @@ GameObject:
   - component: {fileID: 393950085}
   m_Layer: 0
   m_Name: Collectable
-  m_TagString: Untagged
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -942,6 +942,7 @@ MonoBehaviour:
   - {fileID: 393950085}
   - {fileID: 1078037208}
   - {fileID: 768816097}
+  AmountCollected: 0
 --- !u!4 &503724947
 Transform:
   m_ObjectHideFlags: 0
@@ -1697,7 +1698,7 @@ GameObject:
   - component: {fileID: 768816097}
   m_Layer: 0
   m_Name: Collectable (2)
-  m_TagString: Untagged
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1945,7 +1946,7 @@ GameObject:
   - component: {fileID: 1078037208}
   m_Layer: 0
   m_Name: Collectable (1)
-  m_TagString: Untagged
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
