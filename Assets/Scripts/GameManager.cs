@@ -45,5 +45,12 @@ public class GameManager : MonoBehaviour
     {
         Destroy(player.gameObject);
         player = Instantiate(playerPrefab, currentRespawnPoint.transform.position, Quaternion.identity);
+        Debug.Log("Player respawned");
+    }
+
+    public void SetRespawnPoint(RespawnPoint respawnPoint)
+    {
+        currentRespawnPoint = respawnPoint;
+        Debug.Log("New respawn point set at " + currentRespawnPoint.transform.position);
     }
 }

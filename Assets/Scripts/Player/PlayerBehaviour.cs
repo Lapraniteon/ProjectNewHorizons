@@ -22,5 +22,8 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (other.CompareTag("Death"))
             Die();
+
+        if (other.CompareTag("RespawnPoint"))
+            GameManager.Instance.SetRespawnPoint(other.GetComponent<RespawnPoint>());
     }
 }

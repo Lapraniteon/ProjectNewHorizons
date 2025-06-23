@@ -9,6 +9,7 @@ TagManager:
   - Bounce
   - PsychoShroom
   - Death
+  - RespawnPoint
   layers:
   - Default
   - TransparentFX
