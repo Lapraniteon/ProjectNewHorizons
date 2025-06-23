@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     } // Game Manager instance property
 
     // Static player data
+    public PlayerBehaviour player;
     public RespawnPoint currentRespawnPoint;
     
     public UnityEvent onPlayerDeath;
@@ -29,5 +30,8 @@ public class GameManager : MonoBehaviour
     public void PlayerKilled()
     {
         onPlayerDeath.Invoke();
+
+        player.grappleComponent.DisconnectGrapple();
+        transform.SetPositionAndRotation(currentRespawnPoint.transform.position, currentRespawnPoint.transform.rotation);
     }
 }

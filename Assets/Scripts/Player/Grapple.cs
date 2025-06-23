@@ -9,7 +9,6 @@ public class Grapple : MonoBehaviour
     private Camera _mainCamera;
     public Rigidbody2D body;
     public LineRenderer lineRenderer;
-    private PlayerBehaviour _player;
 
     // Grappling
     public TargetJoint2D targetJoint;
@@ -30,7 +29,6 @@ public class Grapple : MonoBehaviour
     {
         _startingFixedDeltaTime = Time.fixedDeltaTime;
         _mainCamera = Camera.main;
-        _player = GetComponent<PlayerBehaviour>();
     }
     
     void Update()
@@ -128,14 +126,9 @@ public class Grapple : MonoBehaviour
         {
             other.gameObject.GetComponent<PsychoShroom>().Trigger();
         }
-
-        if (other.CompareTag("Death"))
-        {
-            _player.Die();
-        }
     }
 
-    private void DisconnectGrapple()
+    public void DisconnectGrapple()
     {
         targetJoint.enabled = false;
         lineRenderer.enabled = false;
