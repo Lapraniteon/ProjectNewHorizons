@@ -35,6 +35,9 @@ public class GameManager : MonoBehaviour
     
     // UI
     public UIController uiController;
+    
+    // Timer
+    public float currentRunTime;
 
     void Awake()
     {
@@ -45,6 +48,8 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         cameraTrackingTarget.SetPositionAndRotation(player.transform.position, player.transform.rotation);
+        
+        currentRunTime += Time.deltaTime;
     }
 
     public void PlayerKilled()
@@ -69,4 +74,8 @@ public class GameManager : MonoBehaviour
     
     public void ToggleShowIngameTimer() => ShowIngameTimer = !ShowIngameTimer;
     public void SetShowIngameTimer(bool showIngameTimer) => ShowIngameTimer = showIngameTimer;
+
+    public void CollectableCollected() => uiController.UpdateCollectablesDisplays(currentCollectableController.AmountCollected, currentCollectableController.Amount);
+    
+    public void ResetRunTime() => currentRunTime = 0f;
 }

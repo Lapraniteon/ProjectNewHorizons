@@ -106,5 +106,26 @@ public class UIController : MonoBehaviour
     {
         GameManager.Instance.uiController = this;
     }
+
+    private void Update()
+    {
+        
+    }
+
+    public void UpdateCollectablesDisplays(int currentAmount, int totalAmount)
+    {
+        foreach (TMP_Text textObj in collectableTexts)
+            textObj.text = $"{currentAmount}/{totalAmount}";
+    }
+
+    public void UpdateTimerDisplays(float timeInSeconds)
+    {
+        float currentTime = GameManager.Instance.currentRunTime;
+        
+        // Add timecode conversion here!
+        
+        foreach (TMP_Text textObj in timerTexts)
+            textObj.text = $"";
+    }
     
 }
