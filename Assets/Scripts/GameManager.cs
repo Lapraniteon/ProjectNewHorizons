@@ -16,8 +16,10 @@ public class GameManager : MonoBehaviour
     } // Game Manager instance property
 
     // Static player data
+    public PlayerBehaviour playerPrefab;
     public PlayerBehaviour player;
     public RespawnPoint currentRespawnPoint;
+    public Transform cameraTrackingTarget;
     
     public UnityEvent onPlayerDeath;
 
@@ -27,11 +29,21 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = (int)Screen.currentResolution.refreshRateRatio.value;
     }
 
+    void Update()
+    {
+        cameraTrackingTarget.SetPositionAndRotation(player.transform.position, player.transform.rotation);
+    }
+
     public void PlayerKilled()
     {
         onPlayerDeath.Invoke();
 
-        player.grappleComponent.DisconnectGrapple();
-        transform.SetPositionAndRotation(currentRespawnPoint.transform.position, currentRespawnPoint.transform.rotation);
+        RespawnPlayer();
+    }
+
+    private void RespawnPlayer()
+    {
+        Destroy(player.gameObject);
+        player = Instantiate(playerPrefab, currentRespawnPoint.transform.position, Quaternion.identity);
     }
 }
