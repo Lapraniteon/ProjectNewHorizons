@@ -8,6 +8,8 @@ TagManager:
   - Vine
   - Bounce
   - PsychoShroom
+  - Death
+  - RespawnPoint
   layers:
   - Default
   - TransparentFX
