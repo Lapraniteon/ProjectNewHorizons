@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -16,12 +17,17 @@ public class GameManager : MonoBehaviour
     } // Game Manager instance property
 
     // Static player data
+    [ShowAssetPreview]
     public PlayerBehaviour playerPrefab;
     public PlayerBehaviour player;
     public RespawnPoint currentRespawnPoint;
     public Transform cameraTrackingTarget;
     
     public UnityEvent onPlayerDeath;
+    
+    // Collectables
+    [HorizontalLine]
+    public CollectableController currentCollectableController;
 
     void Awake()
     {
