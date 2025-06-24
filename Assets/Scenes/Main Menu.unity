@@ -488,10 +488,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6656111858649733870, guid: 34cc7326e54534b7596c580755f92414, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -80
-      objectReference: {fileID: 0}
     - target: {fileID: 8783235483043575526, guid: 34cc7326e54534b7596c580755f92414, type: 3}
       propertyPath: m_Name
       value: Main Menu
@@ -799,6 +795,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game screen
       objectReference: {fileID: 0}
+    - target: {fileID: 5798959650336902915, guid: e97eb6cb577f34fbdb603f63fc7a523f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -996,10 +996,6 @@ PrefabInstance:
     - target: {fileID: 1614388146140372269, guid: 2e757076d79384c538a43d1cf1397d07, type: 3}
       propertyPath: m_Name
       value: Options
-      objectReference: {fileID: 0}
-    - target: {fileID: 1614388146140372269, guid: 2e757076d79384c538a43d1cf1397d07, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
