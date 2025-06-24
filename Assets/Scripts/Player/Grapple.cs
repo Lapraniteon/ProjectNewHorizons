@@ -34,13 +34,12 @@ public class Grapple : MonoBehaviour
     
     void Update()
     {
-        
         float cameraZOffset = transform.position.z - Camera.main.transform.position.z;
         
         Time.fixedDeltaTime = _startingFixedDeltaTime * Time.timeScale;
         
         // Track a single touch as a direction control.
-        if (Input.touchCount > 0 && !GameManager.Instance.overlayActive)
+        if (Input.touchCount > 0 && !GameManager.Instance.overlayActive && !GameManager.Instance.GamePaused)
         {
             Touch touch = Input.GetTouch(0);
 

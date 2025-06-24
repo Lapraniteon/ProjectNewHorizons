@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     // Global flags
     public bool overlayActive;
     public bool ShowIngameTimer { get; private set; }
+    public bool GamePaused { get; private set; }
 
     // Static player data
     [ShowAssetPreview]
@@ -39,6 +40,9 @@ public class GameManager : MonoBehaviour
     // Timer
     public float currentRunTime;
     public bool runTimePaused;
+    
+    // Pausing
+    public float currentTimeScale;
 
     void Awake()
     {
@@ -95,5 +99,26 @@ public class GameManager : MonoBehaviour
     public float GetCurrentHighScore()
     {
         return PlayerPrefs.GetFloat("HighScore", 0);
+    }
+
+    public void TogglePause()
+    {
+        if (!GamePaused)
+        {
+            currentTimeScale = Time.timeScale;
+            Time.timeScale = 0f;
+
+            player.Pause();
+            
+            GamePaused = true;
+        }
+        else
+        {
+            Time.timeScale = currentTimeScale;
+            
+            player.Unpause();
+            
+            GamePaused = false;
+        }
     }
 }
