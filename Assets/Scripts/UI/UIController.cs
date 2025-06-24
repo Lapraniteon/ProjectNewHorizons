@@ -1,3 +1,4 @@
+using System;
 using NaughtyAttributes;
 using TMPro;
 using Unity.VisualScripting;
@@ -109,7 +110,7 @@ public class UIController : MonoBehaviour
 
     private void Update()
     {
-        
+        UpdateTimerDisplays();
     }
 
     public void UpdateCollectablesDisplays(int currentAmount, int totalAmount)
@@ -118,14 +119,30 @@ public class UIController : MonoBehaviour
             textObj.text = $"{currentAmount}/{totalAmount}";
     }
 
-    public void UpdateTimerDisplays(float timeInSeconds)
+    public void UpdateTimerDisplays()
     {
         float currentTime = GameManager.Instance.currentRunTime;
         
-        // Add timecode conversion here!
-        
         foreach (TMP_Text textObj in timerTexts)
-            textObj.text = $"";
+            textObj.text = FormatTime(currentTime);
+    }
+    
+    private string FormatTime(float time)
+    {
+        TimeSpan timeSpan = TimeSpan.FromSeconds(time);
+
+        string format = time switch
+        {
+            < 10f => @"s\.fff",
+            < 60f => @"ss\.fff",
+            < 3600f => @"mm\:ss\.fff",
+            _ => @"hh\:mm\:ss\.fff"
+        };
+
+        /*string[] runTimeTextParts = timeSpan.ToString(format).Split('.'); // + "<size=50%><i>." + timeSpan.ToString("@fff");
+        string runTimeText = runTimeTextParts[0] + "<size=65%>." + runTimeTextParts[1];*/
+        
+        return timeSpan.ToString(format);
     }
     
 }
