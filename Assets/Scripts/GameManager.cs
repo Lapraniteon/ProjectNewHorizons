@@ -43,6 +43,9 @@ public class GameManager : MonoBehaviour
     {
         _instance = this;
         Application.targetFrameRate = (int)Screen.currentResolution.refreshRateRatio.value;
+        
+        if (player == null)
+            player = FindAnyObjectByType<PlayerBehaviour>();
     }
 
     void Update()
