@@ -30,5 +30,10 @@ public class PlayerBehaviour : MonoBehaviour
         {
             other.GetComponent<Collectable>().Collect();
         }
+
+        if (other.CompareTag("SceneSwitcher"))
+        {
+            other.GetComponent<SceneSwitcher>().SwitchScene();
+        }
     }
 }
