@@ -85,4 +85,15 @@ public class GameManager : MonoBehaviour
     public void ResetRunTime() => currentRunTime = 0f;
     
     public void SetRunTimePaused(bool paused) => runTimePaused = paused;
+
+    public void FinalizeAndSaveRunTime()
+    {
+        PlayerPrefs.SetFloat("RunTime", currentRunTime);
+        Debug.Log("Saved runtime of " + currentRunTime);
+    }
+
+    public float GetCurrentHighScore()
+    {
+        return PlayerPrefs.GetFloat("HighScore", 0);
+    }
 }

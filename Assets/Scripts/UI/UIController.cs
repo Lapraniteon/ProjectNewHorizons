@@ -20,6 +20,7 @@ public class UIController : MonoBehaviour
     [HorizontalLine]
     public TMP_Text ingameTimerText;
     public TMP_Text[] timerTexts;
+    public TMP_Text[] highScoreTexts;
     public TMP_Text[] collectableTexts;
     
     // Events
@@ -125,6 +126,14 @@ public class UIController : MonoBehaviour
         
         foreach (TMP_Text textObj in timerTexts)
             textObj.text = FormatTime(currentTime);
+    }
+
+    public void UpdateHighScoreDisplays()
+    {
+        float highScore = GameManager.Instance.GetCurrentHighScore();
+
+        foreach (TMP_Text textObj in highScoreTexts)
+            textObj.text = FormatTime(highScore);
     }
     
     private string FormatTime(float time)
