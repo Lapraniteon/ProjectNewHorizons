@@ -15,6 +15,10 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     } // Game Manager instance property
+    
+    // Global flags
+    public bool overlayActive;
+    public bool ShowIngameTimer { get; private set; }
 
     // Static player data
     [ShowAssetPreview]
@@ -26,8 +30,14 @@ public class GameManager : MonoBehaviour
     public UnityEvent onPlayerDeath;
     
     // Collectables
-    [HorizontalLine]
+    [HorizontalLine] 
     public CollectableController currentCollectableController;
+    
+    // UI
+    public UIController uiController;
+    
+    // Timer
+    public float currentRunTime;
 
     void Awake()
     {
@@ -38,6 +48,8 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         cameraTrackingTarget.SetPositionAndRotation(player.transform.position, player.transform.rotation);
+        
+        currentRunTime += Time.deltaTime;
     }
 
     public void PlayerKilled()
@@ -59,4 +71,11 @@ public class GameManager : MonoBehaviour
         currentRespawnPoint = respawnPoint;
         Debug.Log("New respawn point set at " + currentRespawnPoint.transform.position);
     }
+    
+    public void ToggleShowIngameTimer() => ShowIngameTimer = !ShowIngameTimer;
+    public void SetShowIngameTimer(bool showIngameTimer) => ShowIngameTimer = showIngameTimer;
+
+    public void CollectableCollected() => uiController.UpdateCollectablesDisplays(currentCollectableController.AmountCollected, currentCollectableController.Amount);
+    
+    public void ResetRunTime() => currentRunTime = 0f;
 }
