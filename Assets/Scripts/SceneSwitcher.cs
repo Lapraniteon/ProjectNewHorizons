@@ -5,6 +5,9 @@ using NaughtyAttributes;
 
 public class SceneSwitcher : MonoBehaviour
 {
+
+    public bool loadScene = true;
+    
     [Scene]
     public int sceneToLoad;
 
@@ -14,6 +17,7 @@ public class SceneSwitcher : MonoBehaviour
     {
         onLevelExit.Invoke();
 
-        SceneManager.LoadScene(sceneToLoad);
+        if (loadScene)
+            SceneManager.LoadScene(sceneToLoad);
     }
 }
