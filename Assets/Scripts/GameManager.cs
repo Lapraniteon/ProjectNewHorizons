@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     
     // Timer
     public float currentRunTime;
+    public bool runTimePaused;
 
     void Awake()
     {
@@ -52,7 +53,8 @@ public class GameManager : MonoBehaviour
     {
         cameraTrackingTarget.SetPositionAndRotation(player.transform.position, player.transform.rotation);
         
-        currentRunTime += Time.deltaTime;
+        if (!runTimePaused)
+            currentRunTime += Time.deltaTime;
     }
 
     public void PlayerKilled()
@@ -81,4 +83,6 @@ public class GameManager : MonoBehaviour
     public void CollectableCollected() => uiController.UpdateCollectablesDisplays(currentCollectableController.AmountCollected, currentCollectableController.Amount);
     
     public void ResetRunTime() => currentRunTime = 0f;
+    
+    public void SetRunTimePaused(bool paused) => runTimePaused = paused;
 }
