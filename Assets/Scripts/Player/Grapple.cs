@@ -102,7 +102,7 @@ public class Grapple : MonoBehaviour
         }
         
         // If grappling a vine, release grapple when in close proximity
-        if (_currentGrappleTag == "Vine" && Vector2.Distance(transform.position, targetJoint.target) <= 1f)
+        if (_currentGrappleTag == "Vine" && Vector2.Distance(transform.position, targetJoint.target) <= 1.5f)
             DisconnectGrapple();
         
         lineRenderer.SetPosition(0, transform.position);
