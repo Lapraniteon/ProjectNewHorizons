@@ -1,5 +1,6 @@
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CollectableController : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class CollectableController : MonoBehaviour
     public int AmountCollected;
     
     public bool AllCollected { get { return AmountCollected == Amount; } }
+
+    public UnityEvent onGotCollectable;
+    public UnityEvent onAllCollected;
     
     void Start()
     {
@@ -27,8 +31,13 @@ public class CollectableController : MonoBehaviour
     {
         AmountCollected++;
         
+        onGotCollectable.Invoke();
+
         if (AllCollected)
+        {
+            onAllCollected.Invoke();
             Debug.Log("All collectables collected!");
+        }
     }
 
     [Button("Get Amount Collected")]

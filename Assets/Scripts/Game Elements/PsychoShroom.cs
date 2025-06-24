@@ -1,10 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PsychoShroom : MonoBehaviour
 {
 
     public List<GameObject> objectsToUnhide = new();
+
+    public UnityEvent onTrigger;
 
     void Start()
     {
@@ -20,5 +23,7 @@ public class PsychoShroom : MonoBehaviour
         }
         
         gameObject.SetActive(false);
+
+        onTrigger.Invoke();
     }
 }
