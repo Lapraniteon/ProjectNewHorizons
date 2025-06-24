@@ -11,6 +11,7 @@ TagManager:
   - Death
   - RespawnPoint
   - Collectable
+  - SceneSwitcher
   layers:
   - Default
   - TransparentFX
