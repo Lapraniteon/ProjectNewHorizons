@@ -30,6 +30,7 @@ public class UIController : MonoBehaviour
     public UnityEvent onGameResume;
     
     public UnityEvent onQuitToMainMenu;
+    public UnityEvent onBackToMainMenu;
     public UnityEvent onOptionsButtonPressed;
     public UnityEvent onLevelSelectButtonPressed;
     public UnityEvent onShowTimerButtonPressed;
@@ -62,6 +63,11 @@ public class UIController : MonoBehaviour
         onQuitToMainMenu.Invoke();
         
         SceneManager.LoadScene(mainMenuScene);
+    }
+    
+    public void BackToMainMenu()
+    {
+        onBackToMainMenu.Invoke();
     }
 
     public void Options()
