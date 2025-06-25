@@ -21,6 +21,7 @@ public class Grapple : MonoBehaviour
     private bool _beganTouch;
 
     private string _currentGrappleTag;
+    private Vine _currentVine;
 
     // Time tweening
     private Tweener _timeTweener;
@@ -102,8 +103,18 @@ public class Grapple : MonoBehaviour
         }
         
         // If grappling a vine, release grapple when in close proximity
-        if (_currentGrappleTag == "Vine" && Vector2.Distance(transform.position, targetJoint.target) <= 1.5f)
-            DisconnectGrapple();
+        if (_currentGrappleTag == "Vine")
+        {
+            
+            _currentVine.GrappleAttach();
+            
+            if (Vector2.Distance(transform.position, targetJoint.target) <= 1.5f)
+            {
+                DisconnectGrapple();
+                _currentVine.GrappleDetach();
+                _currentVine = null;
+            }
+        }
         
         lineRenderer.SetPosition(0, transform.position);
 
@@ -154,6 +165,11 @@ public class Grapple : MonoBehaviour
             targetJoint.target = hit.point;
             
             lineRenderer.SetPosition(1, hit.point);
+
+            if (hit.transform.CompareTag("Vine"))
+            {
+                _currentVine = hit.transform.GetComponent<Vine>();
+            }
         }
     }
 }
