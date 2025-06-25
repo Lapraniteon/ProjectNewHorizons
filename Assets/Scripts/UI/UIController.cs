@@ -31,6 +31,7 @@ public class UIController : MonoBehaviour
     
     public UnityEvent onQuitToMainMenu;
     public UnityEvent onBackToMainMenu;
+    public UnityEvent onBackToPauseScreen;
     public UnityEvent onOptionsButtonPressed;
     public UnityEvent onLevelSelectButtonPressed;
     public UnityEvent onShowTimerButtonPressed;
@@ -68,6 +69,11 @@ public class UIController : MonoBehaviour
     public void BackToMainMenu()
     {
         onBackToMainMenu.Invoke();
+    }
+    
+    public void BackToPauseScreen()
+    {
+        onBackToPauseScreen.Invoke();
     }
 
     public void Options()
