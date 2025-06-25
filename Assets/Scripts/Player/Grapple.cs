@@ -103,7 +103,7 @@ public class Grapple : MonoBehaviour
         }
         
         // If grappling a vine, release grapple when in close proximity
-        if (_currentGrappleTag == "Vine")
+        if (_currentGrappleTag == "Vine" && _currentVine != null)
         {
             
             _currentVine.GrappleAttach();
@@ -166,7 +166,7 @@ public class Grapple : MonoBehaviour
             
             lineRenderer.SetPosition(1, hit.point);
 
-            if (hit.transform.CompareTag("Vine"))
+            if (_currentGrappleTag == "Vine")
             {
                 _currentVine = hit.transform.GetComponent<Vine>();
             }
