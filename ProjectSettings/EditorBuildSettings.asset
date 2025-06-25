@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: bbdab8a3bac0e4932bd113072b02183b
+  - enabled: 1
+    path: Assets/Scenes/Starter-Cave.unity
+    guid: 55006eda6ff97df45ad3da2c83d58fdf
+  - enabled: 1
+    path: Assets/Scenes/Mushroom-Cave.unity
+    guid: 6866862f067ba344aa1efb3c4452a40e
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
