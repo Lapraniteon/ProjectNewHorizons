@@ -11,7 +11,7 @@ public class ParallaxBackground : MonoBehaviour
     void Start()
     {
         startpos = transform.position.x;
-        length = 24;
+        length = 24 * gameObject.transform.lossyScale.x;
     }
 
     void FixedUpdate()
