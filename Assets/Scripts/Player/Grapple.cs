@@ -26,10 +26,13 @@ public class Grapple : MonoBehaviour
     // Time tweening
     private Tweener _timeTweener;
     private float _startingFixedDeltaTime;
+
+    private bool _graceTimerDone = false;
     void Start()
     {
         _startingFixedDeltaTime = Time.fixedDeltaTime;
         _mainCamera = Camera.main;
+        Invoke("SetGraceTimerDone", 0.5f);
     }
     
     void Update()
@@ -39,7 +42,7 @@ public class Grapple : MonoBehaviour
         Time.fixedDeltaTime = _startingFixedDeltaTime * Time.timeScale;
         
         // Track a single touch as a direction control.
-        if (Input.touchCount > 0 && !GameManager.Instance.overlayActive && !GameManager.Instance.GamePaused)
+        if (Input.touchCount > 0 && !GameManager.Instance.overlayActive && !GameManager.Instance.GamePaused && _graceTimerDone)
         {
             Touch touch = Input.GetTouch(0);
 
@@ -52,7 +55,7 @@ public class Grapple : MonoBehaviour
                     _touchStartPos = touch.position;
                     _touchStartPosWorldSpace = _mainCamera.ScreenToWorldPoint(new Vector3(_touchStartPos.x, _touchStartPos.y, cameraZOffset));
                     _directionChosen = false;
-                    _timeTweener = DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 0.1f, 0.5f).SetEase(Ease.OutCubic);
+                    //_timeTweener = DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 0.1f, 0.5f).SetEase(Ease.OutCubic);
                     break;
                 
                 // Determine direction by comparing the current touch position with the initial one.
@@ -76,8 +79,8 @@ public class Grapple : MonoBehaviour
                 // Report that a direction has been chosen when the finger is lifted.
                 case TouchPhase.Ended:
 
-                    _timeTweener.Kill();
-                    Time.timeScale = 1f;
+                    //_timeTweener.Kill();
+                    //Time.timeScale = 1f;
                     
                     if (Vector2.Distance(_touchStartPos, touch.position) < 30f)
                     {
@@ -171,4 +174,6 @@ public class Grapple : MonoBehaviour
             }
         }
     }
+
+    void SetGraceTimerDone() => _graceTimerDone = true;
 }
