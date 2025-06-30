@@ -109,6 +109,8 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0f;
 
             player.Pause();
+
+            SetRunTimePaused(true);
             
             GamePaused = true;
         }
@@ -117,6 +119,8 @@ public class GameManager : MonoBehaviour
             Time.timeScale = currentTimeScale;
             
             player.Unpause();
+            
+            SetRunTimePaused(false);
             
             GamePaused = false;
         }
