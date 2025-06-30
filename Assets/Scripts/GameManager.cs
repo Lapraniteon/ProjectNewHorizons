@@ -95,14 +95,30 @@ public class GameManager : MonoBehaviour
 
     public void FinalizeAndSaveRunTime()
     {
-        PlayerPrefs.SetFloat("RunTime " + SceneManager.GetActiveScene().name, currentRunTime);
+        string name = "RunTime " + SceneManager.GetActiveScene().name;
+        PlayerPrefs.SetFloat(name, currentRunTime);
         PlayerPrefs.Save();
-        Debug.Log("Saved runtime of " + currentRunTime);
+        Debug.Log($"Saved runtime of {currentRunTime} to {name}");
     }
 
     public float GetCurrentHighScore()
     {
         return PlayerPrefs.GetFloat("RunTime " + SceneManager.GetActiveScene().name, 0);
+    }
+
+    public float GetTotalHighScore() // Lord forgive me
+    {
+        return PlayerPrefs.GetFloat("RunTime Starter-Cave", 0) + PlayerPrefs.GetFloat("RunTime Mushroom-Cave", 0);
+    }
+
+    public float GetStarterHighScore()
+    {
+        return PlayerPrefs.GetFloat("RunTime Starter-Cave", 0);
+    }
+    
+    public float GetMushroomHighScore()
+    {
+        return PlayerPrefs.GetFloat("RunTime Mushroom-Cave", 0);
     }
 
     public void TogglePause()

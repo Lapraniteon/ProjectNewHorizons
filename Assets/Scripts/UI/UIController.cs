@@ -22,6 +22,11 @@ public class UIController : MonoBehaviour
     public TMP_Text[] timerTexts;
     public TMP_Text[] highScoreTexts;
     public TMP_Text[] collectableTexts;
+
+    [Space] 
+    public TMP_Text endScreenStarterHighScoreText;
+    public TMP_Text endScreenMushroomHighScoreText;
+    public TMP_Text endScreenTotalHighScoreText;
     
     // Events
     [HorizontalLine]
@@ -121,6 +126,16 @@ public class UIController : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.uiController = this;
+        
+        if (endScreenStarterHighScoreText != null)
+            endScreenStarterHighScoreText.text = GameManager.Instance.GetStarterHighScore().ToString();
+        
+        if (endScreenMushroomHighScoreText != null)
+            endScreenMushroomHighScoreText.text = GameManager.Instance.GetStarterHighScore().ToString();
+        
+        if (endScreenTotalHighScoreText != null)
+            endScreenTotalHighScoreText.text = GameManager.Instance.GetStarterHighScore().ToString();
+        
     }
 
     private void Update()
