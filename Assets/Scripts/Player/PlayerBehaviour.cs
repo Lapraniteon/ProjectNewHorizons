@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerBehaviour : MonoBehaviour
 {
 
-    public Grapple grappleComponent;
+    private Grapple _grappleComponent;
     private Rigidbody2D _rigidbody;
 
     private Vector2 _linearVelocityBeforePause;
@@ -14,7 +14,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         GameManager.Instance.player = this;
         
-        grappleComponent = GetComponent<Grapple>();
+        _grappleComponent = GetComponent<Grapple>();
         _rigidbody = GetComponent<Rigidbody2D>();
     }
     
@@ -34,7 +34,7 @@ public class PlayerBehaviour : MonoBehaviour
     public void Unpause()
     {
         _rigidbody.constraints = RigidbodyConstraints2D.None;
-        grappleComponent.DisconnectGrapple();
+        _grappleComponent.DisconnectGrapple();
         
         _rigidbody.linearVelocity = _linearVelocityBeforePause;
         _rigidbody.angularVelocity = _angularVelocityBeforePause;
