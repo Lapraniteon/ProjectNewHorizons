@@ -1,6 +1,7 @@
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -92,13 +93,14 @@ public class GameManager : MonoBehaviour
 
     public void FinalizeAndSaveRunTime()
     {
-        PlayerPrefs.SetFloat("RunTime", currentRunTime);
+        PlayerPrefs.SetFloat("RunTime " + SceneManager.GetActiveScene().name, currentRunTime);
+        PlayerPrefs.Save();
         Debug.Log("Saved runtime of " + currentRunTime);
     }
 
     public float GetCurrentHighScore()
     {
-        return PlayerPrefs.GetFloat("HighScore", 0);
+        return PlayerPrefs.GetFloat("RunTime " + SceneManager.GetActiveScene().name, 0);
     }
 
     public void TogglePause()

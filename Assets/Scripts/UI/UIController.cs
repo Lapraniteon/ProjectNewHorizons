@@ -157,16 +157,16 @@ public class UIController : MonoBehaviour
 
         string format = time switch
         {
-            < 10f => @"s\.fff",
-            < 60f => @"ss\.fff",
-            < 3600f => @"mm\:ss\.fff",
-            _ => @"hh\:mm\:ss\.fff"
+            < 10f => @"s\.ff",
+            < 60f => @"ss\.ff",
+            < 3600f => @"mm\:ss\.ff",
+            _ => @"hh\:mm\:ss\.ff"
         };
 
-        /*string[] runTimeTextParts = timeSpan.ToString(format).Split('.'); // + "<size=50%><i>." + timeSpan.ToString("@fff");
-        string runTimeText = runTimeTextParts[0] + "<size=65%>." + runTimeTextParts[1];*/
+        string[] runTimeTextParts = timeSpan.ToString(format).Split('.'); // + "<size=50%><i>." + timeSpan.ToString("@fff");
+        string runTimeText = runTimeTextParts[0] + "<size=65%>." + runTimeTextParts[1];
         
-        return timeSpan.ToString(format);
+        return runTimeText;
     }
     
 }
