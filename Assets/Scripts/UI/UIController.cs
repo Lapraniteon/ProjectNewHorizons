@@ -126,21 +126,20 @@ public class UIController : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.uiController = this;
-        
-        if (endScreenStarterHighScoreText != null)
-            endScreenStarterHighScoreText.text = GameManager.Instance.GetStarterHighScore().ToString();
-        
-        if (endScreenMushroomHighScoreText != null)
-            endScreenMushroomHighScoreText.text = GameManager.Instance.GetStarterHighScore().ToString();
-        
-        if (endScreenTotalHighScoreText != null)
-            endScreenTotalHighScoreText.text = GameManager.Instance.GetStarterHighScore().ToString();
-        
     }
 
     private void Update()
     {
         UpdateTimerDisplays();
+        
+        if (endScreenStarterHighScoreText != null)
+            endScreenStarterHighScoreText.text = GameManager.Instance.GetStarterHighScore().ToString();
+        
+        if (endScreenMushroomHighScoreText != null)
+            endScreenMushroomHighScoreText.text = GameManager.Instance.GetMushroomHighScore().ToString();
+        
+        if (endScreenTotalHighScoreText != null)
+            endScreenTotalHighScoreText.text = GameManager.Instance.GetTotalHighScore().ToString();
     }
 
     public void UpdateCollectablesDisplays(int currentAmount, int totalAmount)
