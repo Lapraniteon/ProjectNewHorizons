@@ -95,6 +95,9 @@ public class GameManager : MonoBehaviour
 
     public void FinalizeAndSaveRunTime()
     {
+        if (currentRunTime <= GetCurrentHighScore())
+            return;
+        
         string name = "RunTime " + SceneManager.GetActiveScene().name;
         PlayerPrefs.SetFloat(name, currentRunTime);
         PlayerPrefs.Save();
