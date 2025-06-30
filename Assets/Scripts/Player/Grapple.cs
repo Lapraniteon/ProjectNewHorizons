@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Serialization;
 
 public class Grapple : MonoBehaviour
 {
@@ -16,9 +17,9 @@ public class Grapple : MonoBehaviour
     private Vector2 _touchStartPos;
     private Vector2 _touchStartPosWorldSpace;
     private Vector2 _direction;
-    private Vector2 _directionWorldSpace;
-    private bool _directionChosen;
-    private bool _beganTouch;
+    public Vector2 _directionWorldSpace;
+    public bool _directionChosen;
+    public bool _beganTouch;
 
     private string _currentGrappleTag;
     private Vine _currentVine;
