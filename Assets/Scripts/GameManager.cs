@@ -52,6 +52,8 @@ public class GameManager : MonoBehaviour
         
         if (player == null)
             player = FindAnyObjectByType<PlayerBehaviour>();
+
+        ShowIngameTimer = true;
     }
 
     void Update()
