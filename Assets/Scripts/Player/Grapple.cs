@@ -97,9 +97,8 @@ public class Grapple : MonoBehaviour
         // If direction is chosen, launch.
         if (_directionChosen)
         {
-            //Debug.Log("Launch!");
-
-            lineRenderer.enabled = true;
+            //Debug.Log("Launch!");s
+            
             RaycastAndMove(_directionWorldSpace);
             _directionChosen = false;
         }
@@ -153,6 +152,7 @@ public class Grapple : MonoBehaviour
 
         if (hit)
         {
+            lineRenderer.enabled = true;
             _currentGrappleTag = hit.transform.tag;
             
             Debug.DrawRay(transform.position, direction, Color.blue, 2f);
