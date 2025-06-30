@@ -135,9 +135,12 @@ public class UIController : MonoBehaviour
     public void UpdateTimerDisplays()
     {
         float currentTime = GameManager.Instance.currentRunTime;
+        string formattedTime = FormatTime(currentTime);
         
         foreach (TMP_Text textObj in timerTexts)
-            textObj.text = FormatTime(currentTime);
+            textObj.text = formattedTime;
+        
+        ingameTimerText.text = formattedTime;
     }
 
     public void UpdateHighScoreDisplays()
