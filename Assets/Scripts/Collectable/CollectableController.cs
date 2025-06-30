@@ -25,6 +25,8 @@ public class CollectableController : MonoBehaviour
         {
             collectable.controller = this;
         }
+        
+        GameManager.Instance.uiController.UpdateCollectablesDisplays(AmountCollected, Amount);
     }
 
     public void GotCollectable(Collectable collectable)
