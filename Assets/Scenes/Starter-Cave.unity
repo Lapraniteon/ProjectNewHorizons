@@ -3798,6 +3798,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1182881510 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1733973417314382345, guid: e97eb6cb577f34fbdb603f63fc7a523f, type: 3}
+  m_PrefabInstance: {fileID: 1182881506}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1190290820
 GameObject:
   m_ObjectHideFlags: 0
@@ -4188,6 +4199,34 @@ PrefabInstance:
       propertyPath: 'collectables.Array.data[2]'
       value: 
       objectReference: {fileID: 1663875645}
+    - target: {fileID: 1167744526939100085, guid: e860ac1b2e1b6474f80184e67cb9b1ca, type: 3}
+      propertyPath: onGotCollectable.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167744526939100085, guid: e860ac1b2e1b6474f80184e67cb9b1ca, type: 3}
+      propertyPath: onGotCollectable.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167744526939100085, guid: e860ac1b2e1b6474f80184e67cb9b1ca, type: 3}
+      propertyPath: onGotCollectable.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1471215212}
+    - target: {fileID: 1167744526939100085, guid: e860ac1b2e1b6474f80184e67cb9b1ca, type: 3}
+      propertyPath: onGotCollectable.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167744526939100085, guid: e860ac1b2e1b6474f80184e67cb9b1ca, type: 3}
+      propertyPath: onGotCollectable.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CollectableCollected
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167744526939100085, guid: e860ac1b2e1b6474f80184e67cb9b1ca, type: 3}
+      propertyPath: onGotCollectable.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167744526939100085, guid: e860ac1b2e1b6474f80184e67cb9b1ca, type: 3}
+      propertyPath: onGotCollectable.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5330874379665927071, guid: e860ac1b2e1b6474f80184e67cb9b1ca, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4405,6 +4444,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1248225314}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1471215212 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8981388517249719220, guid: 82b4a1fe536122343b0d3310f54d7439, type: 3}
+  m_PrefabInstance: {fileID: 1078483150}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4b1bda4ac334744ba8ae1163cecf589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1506282167
 GameObject:
   m_ObjectHideFlags: 0
@@ -7222,6 +7272,14 @@ PrefabInstance:
       propertyPath: 'timerTexts.Array.data[0]'
       value: 
       objectReference: {fileID: 1161983099}
+    - target: {fileID: 6711715510321701249, guid: 973d2e60ea42eee418291f908c20d48b, type: 3}
+      propertyPath: collectableTexts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711715510321701249, guid: 973d2e60ea42eee418291f908c20d48b, type: 3}
+      propertyPath: 'collectableTexts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1182881510}
     - target: {fileID: 6711715510321701249, guid: 973d2e60ea42eee418291f908c20d48b, type: 3}
       propertyPath: onGamePause.m_PersistentCalls.m_Calls.Array.size
       value: 1
