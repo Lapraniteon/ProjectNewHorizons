@@ -11,6 +11,7 @@ public class Grapple : MonoBehaviour
     private Camera _mainCamera;
     public Rigidbody2D body;
     public LineRenderer lineRenderer;
+    public Transform hookTexture;
 
     // Grappling
     public TargetJoint2D targetJoint;
@@ -125,6 +126,16 @@ public class Grapple : MonoBehaviour
         }
         
         lineRenderer.SetPosition(0, transform.position);
+        
+        hookTexture.position = lineRenderer.GetPosition(1);
+        //hookTexture.rotation = Quaternion.LookRotation(_directionWorldSpace);
+        
+        Vector3 moveDirection = lineRenderer.GetPosition(1) - lineRenderer.GetPosition(0); 
+        if (moveDirection != Vector3.zero) 
+        {
+            float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+            hookTexture.rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
+        }
 
         DebugExtension.DebugPoint(_touchStartPosWorldSpace, Color.cyan);
         Debug.DrawRay(_touchStartPosWorldSpace, _directionWorldSpace, _directionChosen ? Color.green : Color.red);
@@ -151,6 +162,7 @@ public class Grapple : MonoBehaviour
     {
         targetJoint.enabled = false;
         lineRenderer.enabled = false;
+        hookTexture.gameObject.SetActive(false);
         onGrappleDetach.Invoke();
     }
 
@@ -161,6 +173,7 @@ public class Grapple : MonoBehaviour
         if (hit)
         {
             lineRenderer.enabled = true;
+            hookTexture.gameObject.SetActive(true);
             _currentGrappleTag = hit.transform.tag;
             
             Debug.DrawRay(transform.position, direction, Color.blue, 2f);
