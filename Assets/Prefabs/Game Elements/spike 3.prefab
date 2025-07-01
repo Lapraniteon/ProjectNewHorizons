@@ -1334,7 +1334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4909753738060510590, guid: c6bae50cc75b6ee42bfd22e4273d8135, type: 3}
       propertyPath: m_Name
-      value: spike Variant
+      value: spike 3
       objectReference: {fileID: 0}
     - target: {fileID: 6828093962510987421, guid: c6bae50cc75b6ee42bfd22e4273d8135, type: 3}
       propertyPath: m_Size.x
