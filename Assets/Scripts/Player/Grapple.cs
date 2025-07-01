@@ -81,7 +81,7 @@ public class Grapple : MonoBehaviour
                 case TouchPhase.Ended:
 
                     //_timeTweener.Kill();
-                    //Time.timeScale = 1f;
+                    Time.timeScale = 1f;
                     
                     if (Vector2.Distance(_touchStartPos, touch.position) < 30f)
                     {

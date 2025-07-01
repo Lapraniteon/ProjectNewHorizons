@@ -22,6 +22,11 @@ public class UIController : MonoBehaviour
     public TMP_Text[] timerTexts;
     public TMP_Text[] highScoreTexts;
     public TMP_Text[] collectableTexts;
+
+    [Space] 
+    public TMP_Text endScreenStarterHighScoreText;
+    public TMP_Text endScreenMushroomHighScoreText;
+    public TMP_Text endScreenTotalHighScoreText;
     
     // Events
     [HorizontalLine]
@@ -113,6 +118,8 @@ public class UIController : MonoBehaviour
     {
         GameManager.Instance.ToggleShowIngameTimer();
         
+        ingameTimerText.enabled = GameManager.Instance.ShowIngameTimer;
+        
         onShowTimerButtonPressed.Invoke();
     }
 
@@ -124,6 +131,15 @@ public class UIController : MonoBehaviour
     private void Update()
     {
         UpdateTimerDisplays();
+        
+        if (endScreenStarterHighScoreText != null)
+            endScreenStarterHighScoreText.text = GameManager.Instance.GetStarterHighScore().ToString();
+        
+        if (endScreenMushroomHighScoreText != null)
+            endScreenMushroomHighScoreText.text = GameManager.Instance.GetMushroomHighScore().ToString();
+        
+        if (endScreenTotalHighScoreText != null)
+            endScreenTotalHighScoreText.text = GameManager.Instance.GetTotalHighScore().ToString();
     }
 
     public void UpdateCollectablesDisplays(int currentAmount, int totalAmount)
@@ -157,16 +173,16 @@ public class UIController : MonoBehaviour
 
         string format = time switch
         {
-            < 10f => @"s\.fff",
-            < 60f => @"ss\.fff",
-            < 3600f => @"mm\:ss\.fff",
-            _ => @"hh\:mm\:ss\.fff"
+            < 10f => @"s\.ff",
+            < 60f => @"ss\.ff",
+            < 3600f => @"mm\:ss\.ff",
+            _ => @"hh\:mm\:ss\.ff"
         };
 
-        /*string[] runTimeTextParts = timeSpan.ToString(format).Split('.'); // + "<size=50%><i>." + timeSpan.ToString("@fff");
-        string runTimeText = runTimeTextParts[0] + "<size=65%>." + runTimeTextParts[1];*/
+        string[] runTimeTextParts = timeSpan.ToString(format).Split('.'); // + "<size=50%><i>." + timeSpan.ToString("@fff");
+        string runTimeText = runTimeTextParts[0] + "<size=65%>." + runTimeTextParts[1];
         
-        return timeSpan.ToString(format);
+        return runTimeText;
     }
     
 }
