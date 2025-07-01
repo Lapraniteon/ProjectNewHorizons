@@ -246,6 +246,9 @@ MonoBehaviour:
   lineRenderer: {fileID: 4831226049966674478}
   targetJoint: {fileID: 4835956957449957502}
   maxGrappleDistance: 20
+  _directionWorldSpace: {x: 0, y: 0}
+  _directionChosen: 0
+  _beganTouch: 0
 --- !u!114 &7255789926151430436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,7 +261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81a535f1a2a72d4f90442d056a41581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grappleComponent: {fileID: 0}
 --- !u!1 &3920033796157459905
 GameObject:
   m_ObjectHideFlags: 0
