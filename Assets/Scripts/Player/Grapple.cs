@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 public class Grapple : MonoBehaviour
@@ -29,6 +30,10 @@ public class Grapple : MonoBehaviour
     private float _startingFixedDeltaTime;
 
     private bool _graceTimerDone = false;
+
+    public UnityEvent onGrappleAttach;
+    public UnityEvent onGrappleDetach;
+    
     void Start()
     {
         _startingFixedDeltaTime = Time.fixedDeltaTime;
@@ -101,6 +106,7 @@ public class Grapple : MonoBehaviour
             //Debug.Log("Launch!");s
             
             RaycastAndMove(_directionWorldSpace);
+            onGrappleAttach.Invoke();
             _directionChosen = false;
         }
         
@@ -145,6 +151,7 @@ public class Grapple : MonoBehaviour
     {
         targetJoint.enabled = false;
         lineRenderer.enabled = false;
+        onGrappleDetach.Invoke();
     }
 
     private void RaycastAndMove(Vector2 direction)
