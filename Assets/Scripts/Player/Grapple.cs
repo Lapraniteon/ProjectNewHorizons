@@ -32,6 +32,8 @@ public class Grapple : MonoBehaviour
 
     private bool _graceTimerDone = false;
 
+    private bool isNewTouch = false;
+
     public UnityEvent onGrappleAttach;
     public UnityEvent onGrappleDetach;
     
@@ -62,6 +64,7 @@ public class Grapple : MonoBehaviour
                     _touchStartPos = touch.position;
                     _touchStartPosWorldSpace = _mainCamera.ScreenToWorldPoint(new Vector3(_touchStartPos.x, _touchStartPos.y, cameraZOffset));
                     _directionChosen = false;
+                    isNewTouch = true;
                     //_timeTweener = DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 0.1f, 0.5f).SetEase(Ease.OutCubic);
                     break;
                 
@@ -102,12 +105,12 @@ public class Grapple : MonoBehaviour
         }
         
         // If direction is chosen, launch.
-        if (_directionChosen)
+        if (_directionChosen && isNewTouch)
         {
+            isNewTouch = false;
             //Debug.Log("Launch!");s
             
             RaycastAndMove(_directionWorldSpace);
-            onGrappleAttach.Invoke();
             _directionChosen = false;
         }
         
@@ -188,6 +191,8 @@ public class Grapple : MonoBehaviour
             targetJoint.target = hit.point;
             
             lineRenderer.SetPosition(1, hit.point);
+            
+            onGrappleAttach.Invoke();
 
             if (_currentGrappleTag == "Vine")
             {
