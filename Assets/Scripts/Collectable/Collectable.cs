@@ -13,6 +13,9 @@ public class Collectable : MonoBehaviour
 
     public void Collect()
     {
+        if (IsCollected)
+            return;
+        
         controller.GotCollectable(this);
         foreach (GameObject obj in objectsToDisable)
         {
@@ -21,6 +24,8 @@ public class Collectable : MonoBehaviour
         IsCollected = true;
         
         onCollect.Invoke();
+        
+        
     }
     
     

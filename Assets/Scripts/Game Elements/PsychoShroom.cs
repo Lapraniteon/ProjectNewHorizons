@@ -9,6 +9,8 @@ public class PsychoShroom : MonoBehaviour
 
     public UnityEvent onTrigger;
 
+    private bool isCollected = false;
+
     void Start()
     {
         foreach (GameObject obj in objectsToUnhide)
@@ -17,13 +19,18 @@ public class PsychoShroom : MonoBehaviour
     
     public void Trigger()
     {
+        if (isCollected)
+            return;
+        
         foreach (GameObject obj in objectsToUnhide)
         {
             obj.SetActive(true);
         }
         
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
 
         onTrigger.Invoke();
+
+        isCollected = true;
     }
 }
