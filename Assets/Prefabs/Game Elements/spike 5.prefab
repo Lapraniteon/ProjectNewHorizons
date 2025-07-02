@@ -1290,7 +1290,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 480523394840214012, guid: 859d2149bafdd3b49b58e9ef37fec562, type: 3}
       propertyPath: m_Name
-      value: spike Variant
+      value: spike 5
       objectReference: {fileID: 0}
     - target: {fileID: 2038891689707174943, guid: 859d2149bafdd3b49b58e9ef37fec562, type: 3}
       propertyPath: m_Size.x
