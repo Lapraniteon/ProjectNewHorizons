@@ -156,7 +156,8 @@ public class UIController : MonoBehaviour
         foreach (TMP_Text textObj in timerTexts)
             textObj.text = formattedTime;
         
-        ingameTimerText.text = formattedTime;
+        if (ingameTimerText != null)
+            ingameTimerText.text = formattedTime;
     }
 
     public void UpdateHighScoreDisplays()
