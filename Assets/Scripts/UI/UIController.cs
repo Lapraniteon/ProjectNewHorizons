@@ -118,7 +118,8 @@ public class UIController : MonoBehaviour
     {
         GameManager.Instance.ToggleShowIngameTimer();
         
-        ingameTimerText.enabled = GameManager.Instance.ShowIngameTimer;
+        if (ingameTimerText != null)
+            ingameTimerText.enabled = GameManager.Instance.ShowIngameTimer;
         
         onShowTimerButtonPressed.Invoke();
     }
@@ -126,6 +127,9 @@ public class UIController : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.uiController = this;
+        
+        if (ingameTimerText != null)
+            ingameTimerText.enabled = GameManager.Instance.ShowIngameTimer;
     }
 
     private void Update()
