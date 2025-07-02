@@ -137,13 +137,13 @@ public class UIController : MonoBehaviour
         UpdateTimerDisplays();
         
         if (endScreenStarterHighScoreText != null)
-            endScreenStarterHighScoreText.text = GameManager.Instance.GetStarterHighScore().ToString();
+            endScreenStarterHighScoreText.text = FormatTime(GameManager.Instance.GetStarterHighScore());
         
         if (endScreenMushroomHighScoreText != null)
-            endScreenMushroomHighScoreText.text = GameManager.Instance.GetMushroomHighScore().ToString();
+            endScreenMushroomHighScoreText.text = FormatTime(GameManager.Instance.GetMushroomHighScore());
         
         if (endScreenTotalHighScoreText != null)
-            endScreenTotalHighScoreText.text = GameManager.Instance.GetTotalHighScore().ToString();
+            endScreenTotalHighScoreText.text = FormatTime(GameManager.Instance.GetTotalHighScore());
     }
 
     public void UpdateCollectablesDisplays(int currentAmount, int totalAmount)
@@ -178,8 +178,8 @@ public class UIController : MonoBehaviour
 
         string format = time switch
         {
-            < 10f => @"s\.ff",
-            < 60f => @"ss\.ff",
+            //< 10f => @"s\.ff",
+            //< 60f => @"ss\.ff",
             < 3600f => @"mm\:ss\.ff",
             _ => @"hh\:mm\:ss\.ff"
         };
