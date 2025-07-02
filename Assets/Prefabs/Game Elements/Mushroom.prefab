@@ -208,10 +208,10 @@ MonoBehaviour:
   onBounce:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 168006768668678999}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 3420568642080085017}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -339,9 +339,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f8df29d23680384dbb61123bfb573b7, type: 3}
---- !u!1 &168006768668678999 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6147180380542659619, guid: 4f8df29d23680384dbb61123bfb573b7, type: 3}
+--- !u!198 &3420568642080085017 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8674926523656135533, guid: 4f8df29d23680384dbb61123bfb573b7, type: 3}
   m_PrefabInstance: {fileID: 6276833400483837812}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &9036947166395511150 stripped
