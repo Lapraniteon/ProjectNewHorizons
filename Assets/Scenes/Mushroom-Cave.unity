@@ -5559,6 +5559,10 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9002872903994515220, guid: 78b0be3710879b7499a70673c0c02837, type: 3}
+      propertyPath: onGrappleAttach.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002872903994515220, guid: 78b0be3710879b7499a70673c0c02837, type: 3}
       propertyPath: onGrappleAttach.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2048377193}
