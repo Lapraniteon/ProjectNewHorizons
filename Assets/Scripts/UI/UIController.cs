@@ -118,7 +118,8 @@ public class UIController : MonoBehaviour
     {
         GameManager.Instance.ToggleShowIngameTimer();
         
-        ingameTimerText.enabled = GameManager.Instance.ShowIngameTimer;
+        if (ingameTimerText != null)
+            ingameTimerText.enabled = GameManager.Instance.ShowIngameTimer;
         
         onShowTimerButtonPressed.Invoke();
     }
@@ -126,6 +127,9 @@ public class UIController : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.uiController = this;
+        
+        if (ingameTimerText != null)
+            ingameTimerText.enabled = GameManager.Instance.ShowIngameTimer;
     }
 
     private void Update()
@@ -133,13 +137,13 @@ public class UIController : MonoBehaviour
         UpdateTimerDisplays();
         
         if (endScreenStarterHighScoreText != null)
-            endScreenStarterHighScoreText.text = GameManager.Instance.GetStarterHighScore().ToString();
+            endScreenStarterHighScoreText.text = FormatTime(GameManager.Instance.GetStarterHighScore());
         
         if (endScreenMushroomHighScoreText != null)
-            endScreenMushroomHighScoreText.text = GameManager.Instance.GetMushroomHighScore().ToString();
+            endScreenMushroomHighScoreText.text = FormatTime(GameManager.Instance.GetMushroomHighScore());
         
         if (endScreenTotalHighScoreText != null)
-            endScreenTotalHighScoreText.text = GameManager.Instance.GetTotalHighScore().ToString();
+            endScreenTotalHighScoreText.text = FormatTime(GameManager.Instance.GetTotalHighScore());
     }
 
     public void UpdateCollectablesDisplays(int currentAmount, int totalAmount)
@@ -156,7 +160,8 @@ public class UIController : MonoBehaviour
         foreach (TMP_Text textObj in timerTexts)
             textObj.text = formattedTime;
         
-        ingameTimerText.text = formattedTime;
+        if (ingameTimerText != null)
+            ingameTimerText.text = formattedTime;
     }
 
     public void UpdateHighScoreDisplays()
@@ -173,8 +178,8 @@ public class UIController : MonoBehaviour
 
         string format = time switch
         {
-            < 10f => @"s\.ff",
-            < 60f => @"ss\.ff",
+            //< 10f => @"s\.ff",
+            //< 60f => @"ss\.ff",
             < 3600f => @"mm\:ss\.ff",
             _ => @"hh\:mm\:ss\.ff"
         };
