@@ -5,6 +5,8 @@ public class Collectable : MonoBehaviour
 {
     [HideInInspector] public CollectableController controller;
 
+    public GameObject[] objectsToDisable;
+
     public UnityEvent onCollect;
     
     public bool IsCollected { get; private set; }
@@ -12,7 +14,10 @@ public class Collectable : MonoBehaviour
     public void Collect()
     {
         controller.GotCollectable(this);
-        gameObject.SetActive(false);
+        foreach (GameObject obj in objectsToDisable)
+        {
+            obj.SetActive(false);
+        }
         IsCollected = true;
         
         onCollect.Invoke();
