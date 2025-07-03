@@ -44,6 +44,9 @@ public class GameManager : MonoBehaviour
     
     // Pausing
     public float currentTimeScale;
+    
+    // Audio
+    public GameObject globalAudioSource;
 
     void Awake()
     {
@@ -54,6 +57,11 @@ public class GameManager : MonoBehaviour
             player = FindAnyObjectByType<PlayerBehaviour>();
 
         ShowIngameTimer = true;
+    }
+
+    void Start()
+    {
+        DontDestroyOnLoad(globalAudioSource);
     }
 
     void Update()
