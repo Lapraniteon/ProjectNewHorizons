@@ -839,7 +839,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 5694483902704952737}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -855,6 +855,7 @@ GameObject:
   - component: {fileID: 6222229206392233352}
   - component: {fileID: 1436558278148823260}
   - component: {fileID: 1483662374202402198}
+  - component: {fileID: 7822860886806767530}
   m_Layer: 5
   m_Name: Show Timer Button On
   m_TagString: Untagged
@@ -988,6 +989,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &7822860886806767530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6470648051954445103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc06719c726bf424d9e3b4e85201b495, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOnButton: 1
+  ingameTimerEnabled: 0
 --- !u!1 &7062317815953716166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,13 +1151,14 @@ GameObject:
   - component: {fileID: 7002395913146568310}
   - component: {fileID: 2956455550972971671}
   - component: {fileID: 5789001881786602184}
+  - component: {fileID: 4269726583225637658}
   m_Layer: 5
   m_Name: Show Timer Button Off
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4373230842016163242
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1269,3 +1285,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4269726583225637658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8271737475856739163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc06719c726bf424d9e3b4e85201b495, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOnButton: 0
+  ingameTimerEnabled: 0
