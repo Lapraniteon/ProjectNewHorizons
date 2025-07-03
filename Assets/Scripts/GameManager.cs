@@ -107,6 +107,7 @@ public class GameManager : MonoBehaviour
             return;
         
         string name = "RunTime " + SceneManager.GetActiveScene().name;
+        PlayerPrefs.SetFloat("CurrentRunTime", PlayerPrefs.GetFloat("CurrentRunTime", 0) + currentRunTime);
         PlayerPrefs.SetFloat(name, currentRunTime);
         PlayerPrefs.Save();
         Debug.Log($"Saved runtime of {currentRunTime} to {name}");
@@ -161,5 +162,10 @@ public class GameManager : MonoBehaviour
     void ClearAllSaveData()
     {
         PlayerPrefs.DeleteAll();
+    }
+
+    public void ClearCurrentRunTime()
+    {
+        PlayerPrefs.DeleteKey("CurrentRunTime");
     }
 }
