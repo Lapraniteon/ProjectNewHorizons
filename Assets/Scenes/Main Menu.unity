@@ -1919,7 +1919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1483662374202402198, guid: 2e757076d79384c538a43d1cf1397d07, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1483662374202402198, guid: 2e757076d79384c538a43d1cf1397d07, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
@@ -1959,7 +1959,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1483662374202402198, guid: 2e757076d79384c538a43d1cf1397d07, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1483662374202402198, guid: 2e757076d79384c538a43d1cf1397d07, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgument
@@ -1995,7 +1995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5789001881786602184, guid: 2e757076d79384c538a43d1cf1397d07, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5789001881786602184, guid: 2e757076d79384c538a43d1cf1397d07, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
@@ -2030,6 +2030,10 @@ PrefabInstance:
       value: UIController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5789001881786602184, guid: 2e757076d79384c538a43d1cf1397d07, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789001881786602184, guid: 2e757076d79384c538a43d1cf1397d07, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 8300000, guid: 85bc9cdfa967a5c47a054a63520f1bf1, type: 3}
@@ -2048,10 +2052,6 @@ PrefabInstance:
     - target: {fileID: 6470648051954445103, guid: 2e757076d79384c538a43d1cf1397d07, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8271737475856739163, guid: 2e757076d79384c538a43d1cf1397d07, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

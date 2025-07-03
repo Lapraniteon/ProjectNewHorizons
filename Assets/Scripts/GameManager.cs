@@ -93,7 +93,12 @@ public class GameManager : MonoBehaviour
     }
     
     public void ToggleShowIngameTimer() => ShowIngameTimer = !ShowIngameTimer;
-    public void SetShowIngameTimer(bool showIngameTimer) => ShowIngameTimer = showIngameTimer;
+
+    public void SetShowIngameTimer(bool showIngameTimer)
+    {
+        PlayerPrefs.SetInt("ShowIngameTimer", showIngameTimer ? 1 : 0);
+        PlayerPrefs.Save();
+    }
 
     public void CollectableCollected() => uiController.UpdateCollectablesDisplays(currentCollectableController.AmountCollected, currentCollectableController.Amount);
     
@@ -104,6 +109,7 @@ public class GameManager : MonoBehaviour
     public void FinalizeAndSaveRunTime()
     {
         PlayerPrefs.SetFloat("CurrentRunTime", PlayerPrefs.GetFloat("CurrentRunTime", 0) + currentRunTime);
+        PlayerPrefs.Save();
         
         if (currentRunTime >= GetCurrentHighScore())
             return;
