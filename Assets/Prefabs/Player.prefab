@@ -630,7 +630,7 @@ MonoBehaviour:
   lineRenderer: {fileID: 4831226049966674478}
   hookTexture: {fileID: 6443434833547735482}
   targetJoint: {fileID: 4835956957449957502}
-  maxGrappleDistance: 15
+  maxGrappleDistance: 20
   _directionWorldSpace: {x: 0, y: 0}
   _directionChosen: 0
   _beganTouch: 0
