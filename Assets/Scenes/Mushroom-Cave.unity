@@ -22149,7 +22149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1483662374202402198, guid: 2e757076d79384c538a43d1cf1397d07, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1483662374202402198, guid: 2e757076d79384c538a43d1cf1397d07, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
@@ -22189,7 +22189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1483662374202402198, guid: 2e757076d79384c538a43d1cf1397d07, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1483662374202402198, guid: 2e757076d79384c538a43d1cf1397d07, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgument
@@ -22233,7 +22233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5789001881786602184, guid: 2e757076d79384c538a43d1cf1397d07, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5789001881786602184, guid: 2e757076d79384c538a43d1cf1397d07, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
@@ -22266,6 +22266,10 @@ PrefabInstance:
     - target: {fileID: 5789001881786602184, guid: 2e757076d79384c538a43d1cf1397d07, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
       value: UIController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789001881786602184, guid: 2e757076d79384c538a43d1cf1397d07, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5789001881786602184, guid: 2e757076d79384c538a43d1cf1397d07, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgument

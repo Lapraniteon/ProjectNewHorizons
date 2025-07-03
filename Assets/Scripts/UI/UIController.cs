@@ -117,9 +117,9 @@ public class UIController : MonoBehaviour
         SceneManager.LoadScene(gameScene);
     }
 
-    public void ToggleIngameTimer()
+    public void ToggleIngameTimer(bool enabled)
     {
-        GameManager.Instance.ToggleShowIngameTimer();
+        GameManager.Instance.SetShowIngameTimer(enabled);
         
         if (ingameTimerText != null)
             ingameTimerText.enabled = GameManager.Instance.ShowIngameTimer;
