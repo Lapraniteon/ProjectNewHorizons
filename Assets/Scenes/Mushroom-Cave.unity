@@ -5549,26 +5549,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9002872903994515220, guid: 78b0be3710879b7499a70673c0c02837, type: 3}
-      propertyPath: maxGrappleDistance
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 9002872903994515220, guid: 78b0be3710879b7499a70673c0c02837, type: 3}
-      propertyPath: onGrappleAttach.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9002872903994515220, guid: 78b0be3710879b7499a70673c0c02837, type: 3}
-      propertyPath: onGrappleAttach.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 6189403659211239006}
-    - target: {fileID: 9002872903994515220, guid: 78b0be3710879b7499a70673c0c02837, type: 3}
-      propertyPath: onGrappleAttach.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 6189403659211239006}
-    - target: {fileID: 9002872903994515220, guid: 78b0be3710879b7499a70673c0c02837, type: 3}
-      propertyPath: onGrappleDetach.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 6189403659211239006}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
