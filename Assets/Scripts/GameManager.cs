@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
 
     public void FinalizeAndSaveRunTime()
     {
-        if (currentRunTime <= GetCurrentHighScore())
+        if (currentRunTime >= GetCurrentHighScore())
             return;
         
         string name = "RunTime " + SceneManager.GetActiveScene().name;
@@ -147,5 +147,11 @@ public class GameManager : MonoBehaviour
             
             GamePaused = false;
         }
+    }
+
+    [Button("Clear Save Data")]
+    void ClearAllSaveData()
+    {
+        PlayerPrefs.DeleteAll();
     }
 }
