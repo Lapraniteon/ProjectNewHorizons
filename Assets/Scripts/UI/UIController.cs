@@ -122,7 +122,7 @@ public class UIController : MonoBehaviour
         GameManager.Instance.SetShowIngameTimer(enabled);
         
         if (ingameTimerText != null)
-            ingameTimerText.enabled = GameManager.Instance.ShowIngameTimer;
+            ingameTimerText.enabled = PlayerPrefs.GetInt("ShowIngameTimer", 1) == 1 ? true : false;
         
         onShowTimerButtonPressed.Invoke();
     }
@@ -132,7 +132,7 @@ public class UIController : MonoBehaviour
         GameManager.Instance.uiController = this;
         
         if (ingameTimerText != null)
-            ingameTimerText.enabled = GameManager.Instance.ShowIngameTimer;
+            ingameTimerText.enabled = PlayerPrefs.GetInt("ShowIngameTimer", 1) == 1 ? true : false;
     }
 
     private void Update()
