@@ -110,6 +110,8 @@ public class UIController : MonoBehaviour
 
     public void StartGame()
     {
+        Time.timeScale = 1f;
+        
         onStartGame.Invoke();
         
         SceneManager.LoadScene(gameScene);
