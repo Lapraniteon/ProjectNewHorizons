@@ -103,6 +103,8 @@ public class GameManager : MonoBehaviour
 
     public void FinalizeAndSaveRunTime()
     {
+        PlayerPrefs.SetFloat("CurrentRunTime", PlayerPrefs.GetFloat("CurrentRunTime", 0) + currentRunTime);
+        
         if (currentRunTime >= GetCurrentHighScore())
             return;
         
@@ -114,7 +116,7 @@ public class GameManager : MonoBehaviour
 
     public float GetCurrentHighScore()
     {
-        return PlayerPrefs.GetFloat("RunTime " + SceneManager.GetActiveScene().name, 0);
+        return PlayerPrefs.GetFloat("RunTime " + SceneManager.GetActiveScene().name, 9999999);
     }
 
     public float GetTotalHighScore() // Lord forgive me
@@ -161,5 +163,10 @@ public class GameManager : MonoBehaviour
     void ClearAllSaveData()
     {
         PlayerPrefs.DeleteAll();
+    }
+
+    public void ClearCurrentRunTime()
+    {
+        PlayerPrefs.DeleteKey("CurrentRunTime");
     }
 }
