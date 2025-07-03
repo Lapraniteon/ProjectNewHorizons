@@ -27,6 +27,7 @@ public class UIController : MonoBehaviour
     public TMP_Text endScreenStarterHighScoreText;
     public TMP_Text endScreenMushroomHighScoreText;
     public TMP_Text endScreenTotalHighScoreText;
+    public TMP_Text endScreenTotalRunTimeText;
     
     // Events
     [HorizontalLine]
@@ -144,6 +145,9 @@ public class UIController : MonoBehaviour
         
         if (endScreenTotalHighScoreText != null)
             endScreenTotalHighScoreText.text = FormatTime(GameManager.Instance.GetTotalHighScore());
+        
+        if (endScreenTotalRunTimeText != null)
+            endScreenTotalRunTimeText.text = FormatTime(PlayerPrefs.GetFloat("CurrentRunTime", 0));
     }
 
     public void UpdateCollectablesDisplays(int currentAmount, int totalAmount)
