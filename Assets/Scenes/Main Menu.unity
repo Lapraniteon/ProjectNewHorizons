@@ -1628,6 +1628,7 @@ MonoBehaviour:
   currentRunTime: 0
   runTimePaused: 0
   currentTimeScale: 0
+  globalAudioSource: {fileID: 7156540946284248522}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

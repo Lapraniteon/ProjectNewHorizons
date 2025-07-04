@@ -33562,6 +33562,7 @@ MonoBehaviour:
   currentRunTime: 0
   runTimePaused: 0
   currentTimeScale: 0
+  globalAudioSource: {fileID: 7156540946586862565}
 --- !u!1001 &9078745339813304719
 PrefabInstance:
   m_ObjectHideFlags: 0
