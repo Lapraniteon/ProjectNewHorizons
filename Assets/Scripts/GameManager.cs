@@ -44,9 +44,6 @@ public class GameManager : MonoBehaviour
     
     // Pausing
     public float currentTimeScale;
-    
-    // Audio
-    public GameObject globalAudioSource;
 
     void Awake()
     {
@@ -57,11 +54,6 @@ public class GameManager : MonoBehaviour
             player = FindAnyObjectByType<PlayerBehaviour>();
 
         ShowIngameTimer = true;
-    }
-
-    void Start()
-    {
-        DontDestroyOnLoad(globalAudioSource);
     }
 
     void Update()
@@ -82,7 +74,7 @@ public class GameManager : MonoBehaviour
     private void RespawnPlayer()
     {
         Destroy(player.gameObject);
-        player = Instantiate(playerPrefab, currentRespawnPoint.transform.position, Quaternion.identity);
+        player = Instantiate(playerPrefab, currentRespawnPoint.transform.position + (Vector3)currentRespawnPoint.respawnOffset, Quaternion.identity);
         Debug.Log("Player respawned");
     }
 
@@ -93,12 +85,7 @@ public class GameManager : MonoBehaviour
     }
     
     public void ToggleShowIngameTimer() => ShowIngameTimer = !ShowIngameTimer;
-
-    public void SetShowIngameTimer(bool showIngameTimer)
-    {
-        PlayerPrefs.SetInt("ShowIngameTimer", showIngameTimer ? 1 : 0);
-        PlayerPrefs.Save();
-    }
+    public void SetShowIngameTimer(bool showIngameTimer) => ShowIngameTimer = showIngameTimer;
 
     public void CollectableCollected() => uiController.UpdateCollectablesDisplays(currentCollectableController.AmountCollected, currentCollectableController.Amount);
     
@@ -108,10 +95,7 @@ public class GameManager : MonoBehaviour
 
     public void FinalizeAndSaveRunTime()
     {
-        PlayerPrefs.SetFloat("CurrentRunTime", PlayerPrefs.GetFloat("CurrentRunTime", 0) + currentRunTime);
-        PlayerPrefs.Save();
-        
-        if (currentRunTime >= GetCurrentHighScore())
+        if (currentRunTime <= GetCurrentHighScore())
             return;
         
         string name = "RunTime " + SceneManager.GetActiveScene().name;
@@ -122,7 +106,7 @@ public class GameManager : MonoBehaviour
 
     public float GetCurrentHighScore()
     {
-        return PlayerPrefs.GetFloat("RunTime " + SceneManager.GetActiveScene().name, 9999999);
+        return PlayerPrefs.GetFloat("RunTime " + SceneManager.GetActiveScene().name, 0);
     }
 
     public float GetTotalHighScore() // Lord forgive me
@@ -163,16 +147,5 @@ public class GameManager : MonoBehaviour
             
             GamePaused = false;
         }
-    }
-
-    [Button("Clear Save Data")]
-    void ClearAllSaveData()
-    {
-        PlayerPrefs.DeleteAll();
-    }
-
-    public void ClearCurrentRunTime()
-    {
-        PlayerPrefs.DeleteKey("CurrentRunTime");
     }
 }
