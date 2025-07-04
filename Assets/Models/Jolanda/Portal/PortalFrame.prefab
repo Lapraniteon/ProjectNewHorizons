@@ -75,15 +75,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 121316383148414062, guid: a0d2e7874db39334889bea859cffe71d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.5
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 121316383148414062, guid: a0d2e7874db39334889bea859cffe71d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 107
+      value: 104.6
       objectReference: {fileID: 0}
     - target: {fileID: 121316383148414062, guid: a0d2e7874db39334889bea859cffe71d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.1
+      value: -22.8
       objectReference: {fileID: 0}
     - target: {fileID: 121316383148414062, guid: a0d2e7874db39334889bea859cffe71d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -113,9 +113,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 121316383148414062, guid: a0d2e7874db39334889bea859cffe71d, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 830460291925126892, guid: a0d2e7874db39334889bea859cffe71d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 830460291925126892, guid: a0d2e7874db39334889bea859cffe71d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 22.285717
+      objectReference: {fileID: 0}
+    - target: {fileID: 830460291925126892, guid: a0d2e7874db39334889bea859cffe71d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 18.57143
+      objectReference: {fileID: 0}
+    - target: {fileID: 830460291925126892, guid: a0d2e7874db39334889bea859cffe71d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830460291925126892, guid: a0d2e7874db39334889bea859cffe71d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 14.6
+      objectReference: {fileID: 0}
     - target: {fileID: 2814425580450814418, guid: a0d2e7874db39334889bea859cffe71d, type: 3}
       propertyPath: m_Name
       value: portal w SoL
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905480416624810061, guid: a0d2e7874db39334889bea859cffe71d, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4893478717266715857, guid: a0d2e7874db39334889bea859cffe71d, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4893478717266715857, guid: a0d2e7874db39334889bea859cffe71d, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 225
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
