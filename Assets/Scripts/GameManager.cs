@@ -44,6 +44,9 @@ public class GameManager : MonoBehaviour
     
     // Pausing
     public float currentTimeScale;
+    
+    // Audio
+    public GameObject globalAudioSource;
 
     void Awake()
     {
@@ -54,6 +57,11 @@ public class GameManager : MonoBehaviour
             player = FindAnyObjectByType<PlayerBehaviour>();
 
         ShowIngameTimer = true;
+    }
+
+    void Start()
+    {
+        DontDestroyOnLoad(globalAudioSource);
     }
 
     void Update()
@@ -85,7 +93,12 @@ public class GameManager : MonoBehaviour
     }
     
     public void ToggleShowIngameTimer() => ShowIngameTimer = !ShowIngameTimer;
-    public void SetShowIngameTimer(bool showIngameTimer) => ShowIngameTimer = showIngameTimer;
+
+    public void SetShowIngameTimer(bool showIngameTimer)
+    {
+        PlayerPrefs.SetInt("ShowIngameTimer", showIngameTimer ? 1 : 0);
+        PlayerPrefs.Save();
+    }
 
     public void CollectableCollected() => uiController.UpdateCollectablesDisplays(currentCollectableController.AmountCollected, currentCollectableController.Amount);
     
@@ -95,7 +108,10 @@ public class GameManager : MonoBehaviour
 
     public void FinalizeAndSaveRunTime()
     {
-        if (currentRunTime <= GetCurrentHighScore())
+        PlayerPrefs.SetFloat("CurrentRunTime", PlayerPrefs.GetFloat("CurrentRunTime", 0) + currentRunTime);
+        PlayerPrefs.Save();
+        
+        if (currentRunTime >= GetCurrentHighScore())
             return;
         
         string name = "RunTime " + SceneManager.GetActiveScene().name;
@@ -106,7 +122,7 @@ public class GameManager : MonoBehaviour
 
     public float GetCurrentHighScore()
     {
-        return PlayerPrefs.GetFloat("RunTime " + SceneManager.GetActiveScene().name, 0);
+        return PlayerPrefs.GetFloat("RunTime " + SceneManager.GetActiveScene().name, 9999999);
     }
 
     public float GetTotalHighScore() // Lord forgive me
