@@ -2095,11 +2095,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6068769057035237878, guid: 78b0be3710879b7499a70673c0c02837, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.2700005
+      value: 1.68
       objectReference: {fileID: 0}
     - target: {fileID: 6068769057035237878, guid: 78b0be3710879b7499a70673c0c02837, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.26999998
+      value: 0.43
       objectReference: {fileID: 0}
     - target: {fileID: 6068769057035237878, guid: 78b0be3710879b7499a70673c0c02837, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7506,7 +7506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 772022559113936127, guid: b4d86fd1e80159d42b4e99ed60daedf3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -198
+      value: -199.46
       objectReference: {fileID: 0}
     - target: {fileID: 772022559113936127, guid: b4d86fd1e80159d42b4e99ed60daedf3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7595,6 +7595,10 @@ PrefabInstance:
     - target: {fileID: 6396639585464187403, guid: b4d86fd1e80159d42b4e99ed60daedf3, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6610256226411301006, guid: b4d86fd1e80159d42b4e99ed60daedf3, type: 3}
+      propertyPath: respawnOffset.x
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6610256226411301006, guid: b4d86fd1e80159d42b4e99ed60daedf3, type: 3}
       propertyPath: onSetRespawn.m_PersistentCalls.m_Calls.Array.size
@@ -8724,7 +8728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 772022559113936127, guid: b4d86fd1e80159d42b4e99ed60daedf3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.42
+      value: -31.01
       objectReference: {fileID: 0}
     - target: {fileID: 772022559113936127, guid: b4d86fd1e80159d42b4e99ed60daedf3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8797,6 +8801,14 @@ PrefabInstance:
     - target: {fileID: 6396639585464187403, guid: b4d86fd1e80159d42b4e99ed60daedf3, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6610256226411301006, guid: b4d86fd1e80159d42b4e99ed60daedf3, type: 3}
+      propertyPath: respawnOffset.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6610256226411301006, guid: b4d86fd1e80159d42b4e99ed60daedf3, type: 3}
+      propertyPath: respawnOffset.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6610256226411301006, guid: b4d86fd1e80159d42b4e99ed60daedf3, type: 3}
       propertyPath: onSetRespawn.m_PersistentCalls.m_Calls.Array.size
@@ -17066,7 +17078,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7830771702032911591, guid: 859d2149bafdd3b49b58e9ef37fec562, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8
+      value: 4.76
       objectReference: {fileID: 0}
     - target: {fileID: 7830771702032911591, guid: 859d2149bafdd3b49b58e9ef37fec562, type: 3}
       propertyPath: m_LocalPosition.y
@@ -33403,7 +33415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 772022559113936127, guid: b4d86fd1e80159d42b4e99ed60daedf3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -169
+      value: -170.91
       objectReference: {fileID: 0}
     - target: {fileID: 772022559113936127, guid: b4d86fd1e80159d42b4e99ed60daedf3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -33492,6 +33504,10 @@ PrefabInstance:
     - target: {fileID: 6396639585464187403, guid: b4d86fd1e80159d42b4e99ed60daedf3, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6610256226411301006, guid: b4d86fd1e80159d42b4e99ed60daedf3, type: 3}
+      propertyPath: respawnOffset.x
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6610256226411301006, guid: b4d86fd1e80159d42b4e99ed60daedf3, type: 3}
       propertyPath: onSetRespawn.m_PersistentCalls.m_Calls.Array.size
@@ -34329,6 +34345,10 @@ PrefabInstance:
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6610256226411301006, guid: b4d86fd1e80159d42b4e99ed60daedf3, type: 3}
+      propertyPath: respawnOffset.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6610256226411301006, guid: b4d86fd1e80159d42b4e99ed60daedf3, type: 3}
       propertyPath: onSetRespawn.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -34871,6 +34891,10 @@ PrefabInstance:
     - target: {fileID: 6396639585464187403, guid: b4d86fd1e80159d42b4e99ed60daedf3, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6610256226411301006, guid: b4d86fd1e80159d42b4e99ed60daedf3, type: 3}
+      propertyPath: respawnOffset.x
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6610256226411301006, guid: b4d86fd1e80159d42b4e99ed60daedf3, type: 3}
       propertyPath: onSetRespawn.m_PersistentCalls.m_Calls.Array.size
